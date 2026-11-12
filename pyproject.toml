@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yarasort"
+version = "1.0.0"
+description = "Content-based file organizer for Linux, powered by YARA"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Ashar Dian" }]
+keywords = ["file-organizer", "yara", "linux", "cli", "automation"]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: System :: Filesystems",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "yara-python>=4.2",
+    "tomli>=2.0; python_version < '3.11'",
+]
+
+[project.scripts]
+yarasort = "yarasort.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/ashardian/yarasort"
+Issues = "https://github.com/ashardian/yarasort/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+yarasort = ["data/*.yar"]

@@ -1,0 +1,15 @@
+[Unit]
+Description=yarasort - keep folders sorted by file content
+Documentation=https://github.com/ashardian/yarasort
+
+[Service]
+Type=simple
+ExecStart=@BIN@ watch --apply
+Restart=on-failure
+RestartSec=5
+Nice=10
+IOSchedulingClass=idle
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=default.target
